@@ -84,7 +84,10 @@ class _SignUpState extends State<SignUp> {
       child: TextField(
         decoration: InputDecoration(
             hintText: hintText,
-            prefixIcon: Icon(icon),
+            prefixIcon: Icon(
+              icon,
+              color: Colors.blue,
+            ),
             border: const GradientOutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(30)),
                 width: 3,
