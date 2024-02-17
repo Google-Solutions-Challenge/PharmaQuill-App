@@ -17,7 +17,7 @@ class _SignUpState extends State<SignUp> {
           title: const Center(
             child: Text(
               "Profile",
-              style: TextStyle(fontSize: 35, color: Colors.white),
+              style: TextStyle(fontSize: 30, color: Colors.white),
             ),
           ),
         ),
@@ -40,6 +40,13 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
+                  Container(
+                    height: 150,
+                    width: 150,
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                  )
                 ])),
             Expanded(
               flex: 2,
@@ -51,19 +58,15 @@ class _SignUpState extends State<SignUp> {
                     Expanded(
                       child: _buildTextField("Username", Icons.person),
                     ),
-                    const SizedBox(height: 10),
                     Expanded(
                       child: _buildTextField("DOB", Icons.calendar_month),
                     ),
-                    const SizedBox(height: 10),
                     Expanded(
                       child: _buildTextField("Gender", Icons.family_restroom),
                     ),
-                    const SizedBox(height: 10),
                     Expanded(
                       child: _buildTextField("Email", Icons.email),
                     ),
-                    const SizedBox(height: 10),
                     Expanded(
                       child: _buildTextField("Password", Icons.password),
                     ),
@@ -89,10 +92,7 @@ class _SignUpState extends State<SignUp> {
                   Color.fromARGB(255, 11, 30, 110),
                   Color.fromARGB(255, 63, 88, 176),
                   Color.fromARGB(255, 95, 128, 236),
-                ]))
-            // filled: true,
-            // fillColor: Colors.white.withOpacity(0.3),
-            ),
+                ]))),
       ),
     );
   }
