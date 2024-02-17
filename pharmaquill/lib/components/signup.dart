@@ -13,12 +13,12 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 63, 88, 176),
-          title: const Center(
-            child: Text(
-              "Profile",
-              style: TextStyle(fontSize: 30, color: Colors.white),
-            ),
+          leading: const BackButton(color: Colors.white),
+          backgroundColor: const Color.fromRGBO(3, 4, 94, 1),
+          title: const Text(
+            "Profile",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 30, color: Colors.white),
           ),
         ),
         body: Column(
@@ -29,13 +29,13 @@ class _SignUpState extends State<SignUp> {
                   Container(
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
                         stops: [0.1, 0.5, 0.9],
                         colors: [
-                          Color.fromARGB(255, 11, 30, 110),
-                          Color.fromARGB(255, 63, 88, 176),
-                          Color.fromARGB(255, 95, 128, 236),
+                          Color.fromRGBO(3, 4, 94, 1),
+                          Color.fromRGBO(0, 180, 216, 1),
+                          Color.fromRGBO(144, 224, 239, 1),
                         ],
                       ),
                     ),
