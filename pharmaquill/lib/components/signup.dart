@@ -1,3 +1,4 @@
+import 'package:fancy_password_field/fancy_password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 
@@ -82,13 +83,38 @@ class _SignUpState extends State<SignUp> {
                     child:
                         _buildTextField("Email", Icons.email, _emailController),
                   ),
-                  Expanded(
-                    child: _buildTextField(
-                        "Password", Icons.password, _passwordController),
+                  const Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      child: FancyPasswordField(
+                        decoration: InputDecoration(
+                          hintText: "Password",
+                          prefixIcon: Icon(
+                            Icons.password,
+                            color: Colors.blue,
+                          ),
+                          border: GradientOutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            width: 3,
+                            gradient: LinearGradient(colors: [
+                              Color.fromARGB(255, 11, 30, 110),
+                              Color.fromARGB(255, 63, 88, 176),
+                              Color.fromARGB(255, 95, 128, 236),
+                            ]),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                       height: 20), // Add some space between fields and button
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromRGBO(204, 49, 61, 1),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30))),
                     onPressed: () {
                       // Collect user input data
                       String username = _usernameController.text;
@@ -97,21 +123,13 @@ class _SignUpState extends State<SignUp> {
                       String email = _emailController.text;
                       String password = _passwordController.text;
 
-                      // Print user inputs to the console
-                      print('\x1B[33mUsername: \x1B[0m$username');
-                      print('\x1B[33mDOB: \x1B[0m$dob');
-                      print('\x1B[33mGender: \x1B[0m$gender');
-                      print('\x1B[33mEmail: \x1B[0m$email');
-                      print('\x1B[33mPassword: \x1B[0m$password');
-                      print('\x1B[32mSending data to MongoDB...\x1B[0m');
-                      print('------------------------');
-                      // Pass the data to another function
                       sendDataToMongoDB(username, dob, gender, email, password);
 
                       // Navigate to SignUp state
                       Navigator.pushReplacementNamed(context, '/signup');
                     },
-                    child: Text('Submit'),
+                    child: const Text('Submit',
+                        style: TextStyle(fontSize: 14, color: Colors.white)),
                   ),
                 ],
               ),
