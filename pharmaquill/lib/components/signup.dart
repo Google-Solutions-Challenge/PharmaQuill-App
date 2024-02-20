@@ -20,6 +20,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black87,
       appBar: AppBar(
         leading: const BackButton(color: Colors.white),
         backgroundColor: const Color.fromRGBO(3, 4, 94, 1),
@@ -91,6 +92,7 @@ class _SignUpState extends State<SignUp> {
                       child: FancyPasswordField(
                         decoration: InputDecoration(
                           hintText: "Password",
+                          hintStyle: TextStyle(color: Colors.white),
                           prefixIcon: Icon(
                             Icons.password,
                             color: Colors.blue,
@@ -149,6 +151,7 @@ class _SignUpState extends State<SignUp> {
         controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.white),
           prefixIcon: Icon(
             icon,
             color: Colors.blue,
@@ -170,8 +173,6 @@ class _SignUpState extends State<SignUp> {
   // Function to handle data before storing in MongoDB
   void sendDataToMongoDB(String username, String dob, String gender,
       String email, String password) {
-    // Here you can perform any operation with the collected data before storing it in MongoDB
-    // For demonstration, let's just print the data in a readable format
     print('Username: $username');
     print('DOB: $dob');
     print('Gender: $gender');
