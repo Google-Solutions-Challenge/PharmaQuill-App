@@ -1,4 +1,4 @@
-import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -10,6 +10,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // final List<Map> myProducts =
+  //     List.generate(6, (index) => {"id": index, "name": "Product $index"})
+  //         .toList();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,11 +26,12 @@ class _HomeState extends State<Home> {
           style: TextStyle(fontSize: 30, color: Colors.white),
         ),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Padding(padding: EdgeInsetsDirectional.only(top: 10)),
-          Row(
+          const Padding(padding: EdgeInsets.only(top: 5)),
+          const Row(
             children: [
+              Padding(padding: EdgeInsets.only(left: 20)),
               Expanded(
                   child: Text(
                 "Select service",
@@ -42,7 +46,32 @@ class _HomeState extends State<Home> {
                 color: Colors.white,
               )
             ],
-          )
+          ),
+          const Padding(padding: EdgeInsets.only(bottom: 20)),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200,
+                      childAspectRatio: 1,
+                      crossAxisSpacing: 15,
+                      mainAxisSpacing: 15),
+                  itemCount: 6,
+                  itemBuilder: (BuildContext ctx, index) {
+                    return Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(15)),
+                      child: const Text(
+                        "Placeholder",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                    );
+                  }),
+            ),
+          ),
         ],
       ),
     );
