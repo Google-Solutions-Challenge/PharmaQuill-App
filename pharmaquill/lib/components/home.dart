@@ -1,6 +1,20 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+
+class Item {
+  final IconData icon;
+  final String text;
+
+  Item(this.icon, this.text);
+}
+
+final List<Item> items = [
+  Item(Icons.medical_services_outlined, "Appoitment"),
+  Item(Icons.medication_rounded, "Buy Medicine"),
+  Item(Icons.mail, "Placeholder"),
+  Item(Icons.person_2_outlined, "Profile"),
+  Item(Icons.notifications, "Notifications"),
+  Item(Icons.settings_accessibility_outlined, "Settings"),
+];
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,9 +24,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // final List<Map> myProducts =
-  //     List.generate(6, (index) => {"id": index, "name": "Product $index"})
-  //         .toList();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,14 +70,26 @@ class _HomeState extends State<Home> {
                       mainAxisSpacing: 15),
                   itemCount: 6,
                   itemBuilder: (BuildContext ctx, index) {
+                    Item item = items[index];
                     return Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: Colors.blueAccent,
                           borderRadius: BorderRadius.circular(15)),
-                      child: const Text(
-                        "Placeholder",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            item.icon,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            item.text,
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 20),
+                          ),
+                        ],
                       ),
                     );
                   }),
