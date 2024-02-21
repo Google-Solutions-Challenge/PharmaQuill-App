@@ -117,19 +117,22 @@ class _SignUpState extends State<SignUp> {
                         backgroundColor: const Color.fromRGBO(204, 49, 61, 1),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30))),
-                    onPressed: () {
-                      // Collect user input data
-                      String username = _usernameController.text;
-                      String dob = _dobController.text;
-                      String gender = _genderController.text;
-                      String email = _emailController.text;
-                      String password = _passwordController.text;
 
-                      sendDataToMongoDB(username, dob, gender, email, password);
+                    onPressed: () => Navigator.pushNamed(context, '/home'),
+                    // onPressed: () {
 
-                      // Navigate to SignUp state
-                      Navigator.pushReplacementNamed(context, '/signup');
-                    },
+                    //   // Collect user input data
+                    //   String username = _usernameController.text;
+                    //   String dob = _dobController.text;
+                    //   String gender = _genderController.text;
+                    //   String email = _emailController.text;
+                    //   String password = _passwordController.text;
+
+                    //   sendDataToMongoDB(username, dob, gender, email, password);
+
+                    //   // Navigate to SignUp state
+                    //   Navigator.pushReplacementNamed(context, '/signup');
+                    // },
                     child: const Text('Submit',
                         style: TextStyle(fontSize: 14, color: Colors.white)),
                   ),
