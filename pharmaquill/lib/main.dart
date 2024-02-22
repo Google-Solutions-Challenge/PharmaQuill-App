@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:pharmaquill/components/appointment.dart";
 import "package:pharmaquill/components/home.dart";
 import "package:pharmaquill/components/signup.dart";
 import "package:pharmaquill/components/splash.dart";
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const SplashPage(),
         '/home': (context) => const Home(),
         '/signup': (context) => const SignUp(),
+        '/appointment': (context) => const Appointment(),
       },
     );
   }

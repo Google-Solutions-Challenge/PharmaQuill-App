@@ -89,6 +89,11 @@ class _HomeState extends State<Home> {
                             style: const TextStyle(
                                 color: Colors.white, fontSize: 20),
                           ),
+                          ElevatedButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/appointment'),
+                            child: const Text("Lets Go!"),
+                          )
                         ],
                       ),
                     );
