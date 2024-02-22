@@ -40,9 +40,9 @@ class SplashPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30))),
               onPressed: () => Navigator.pushNamed(context, '/signup'),
               child: const Text(
-                "Sign Up",
+                "SignUp",
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 25),
               ),
             ),
           ),

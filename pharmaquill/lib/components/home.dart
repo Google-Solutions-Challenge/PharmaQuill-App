@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 class Item {
   final IconData icon;
   final String text;
+  final String routes;
 
-  Item(this.icon, this.text);
+  Item(this.icon, this.text, this.routes);
 }
 
 final List<Item> items = [
-  Item(Icons.medical_services_outlined, "Appoitment"),
-  Item(Icons.medication_rounded, "Buy Medicine"),
-  Item(Icons.mail, "Placeholder"),
-  Item(Icons.person_2_outlined, "Profile"),
-  Item(Icons.notifications, "Notifications"),
-  Item(Icons.settings_accessibility_outlined, "Settings"),
+  Item(Icons.medical_services_outlined, "Appoitment", "/appointment"),
+  Item(Icons.medication_rounded, "Buy Medicine", "/appointment"),
+  Item(Icons.mail, "Placeholder", "/appointment"),
+  Item(Icons.person_2_outlined, "Profile", "/appointment"),
+  Item(Icons.notifications, "Notifications", "/appointment"),
+  Item(Icons.settings_accessibility_outlined, "Settings", "/appointment"),
 ];
 
 class Home extends StatefulWidget {
@@ -34,7 +35,8 @@ class _HomeState extends State<Home> {
         title: const Text(
           "HOME",
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 30, color: Colors.white),
+          style: TextStyle(
+              fontSize: 30, color: Color.fromARGB(255, 253, 228, 228)),
         ),
       ),
       body: Column(
@@ -91,7 +93,7 @@ class _HomeState extends State<Home> {
                           ),
                           ElevatedButton(
                             onPressed: () =>
-                                Navigator.pushNamed(context, '/appointment'),
+                                Navigator.pushNamed(context, item.routes),
                             child: const Text("Lets Go!"),
                           )
                         ],
