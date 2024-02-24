@@ -3,6 +3,7 @@ import "package:pharmaquill/components/appointment.dart";
 import "package:pharmaquill/components/home.dart";
 import "package:pharmaquill/components/signup.dart";
 import "package:pharmaquill/components/splash.dart";
+import "package:pharmaquill/components/visit.dart";
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const Home(),
         '/signup': (context) => const SignUp(),
         '/appointment': (context) => const Appointment(),
+        '/visit': (context) => const Visit(),
       },
     );
   }

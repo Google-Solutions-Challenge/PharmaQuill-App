@@ -127,7 +127,7 @@ class DoctorList extends StatelessWidget {
               leading: const Icon(
                 Icons.person,
                 color: Colors.white,
-              ), // Replace with actual image
+              ),
               title: Text(
                 doctor['name']!,
                 style: const TextStyle(fontWeight: FontWeight.bold),
@@ -142,7 +142,7 @@ class DoctorList extends StatelessWidget {
               ),
               trailing: ElevatedButton(
                 onPressed: () {
-                  print("Button pressed");
+                  Navigator.pushNamed(context, '/visit', arguments: doctor);
                 },
                 child: const Text('Appointment'),
               ),
