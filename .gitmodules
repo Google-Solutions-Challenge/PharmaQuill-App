@@ -1,0 +1,6 @@
+[submodule "admin-portal"]
+	path = admin-portal
+	url = https://github.com/Google-Solutions-Challenge/admin-portal.git
+[submodule "PharmaQuill"]
+	path = PharmaQuill
+	url = https://github.com/LunaticPython2003/PharmaQuill
