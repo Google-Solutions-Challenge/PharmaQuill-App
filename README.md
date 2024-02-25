@@ -1,6 +1,7 @@
 # PharmaQuill-App
 Customer Application for PharmaQuill
 
+![alt text](<WhatsApp Image 2024-02-18 at 22.08.41_8ed77782.jpg>)
 # Introduction
 Say goodbye to healthcare hassles! PharmaQuill makes it easy. Upload prescriptions, and order meds in seconds - all from your phone. 
 Feeling unwell? Skip the hospital rush, and book an affordable appointment with a pharmacy doctor right in the app. No hidden costs, and clear pricing upfront. 
