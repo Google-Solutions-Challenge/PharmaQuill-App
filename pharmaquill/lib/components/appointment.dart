@@ -93,19 +93,19 @@ class DoctorList extends StatelessWidget {
     {
       'name': 'Dr. Jane Doe',
       'specialty': 'Anonymous Pharmacy, Majhitar',
-      'time': '10:30 AM - 3:00 PM',
+      'time': '10:30 - 12:00',
       'fee': '800INR'
     },
     {
       'name': 'Dr. Jane Doe',
       'specialty': 'Anonymous Pharmacy, Majhitar',
-      'time': '10:30 AM - 3:00 PM',
+      'time': '10:30-15:00',
       'fee': '800INR'
     },
     {
       'name': 'Dr. Jane Doe',
       'specialty': 'Anonymous Pharmacy, Majhitar',
-      'time': '10:30 AM - 5:00 PM',
+      'time': '10:30-15:00',
       'fee': '600INR'
     },
   ];

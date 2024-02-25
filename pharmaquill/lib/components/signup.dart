@@ -10,12 +10,26 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  // Controllers to capture user input
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _dobController = TextEditingController();
   final TextEditingController _genderController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  // Function to show date picker when "DOB" field is clicked
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null) {
+      setState(() {
+        _dobController.text = picked.toString();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +87,35 @@ class _SignUpState extends State<SignUp> {
                         "Username", Icons.person, _usernameController),
                   ),
                   Expanded(
-                    child: _buildTextField(
-                        "DOB", Icons.calendar_month, _dobController),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      child: TextFormField(
+                        controller: _dobController,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: const InputDecoration(
+                          hintText: "DOB",
+                          hintStyle: TextStyle(color: Colors.white),
+                          prefixIcon: Icon(
+                            Icons.calendar_today,
+                            color: Colors.blue,
+                          ),
+                          border: GradientOutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            width: 3,
+                            gradient: LinearGradient(colors: [
+                              Color.fromARGB(255, 11, 30, 110),
+                              Color.fromARGB(255, 63, 88, 176),
+                              Color.fromARGB(255, 95, 128, 236),
+                            ]),
+                          ),
+                        ),
+                        onTap: () {
+                          // Show date picker when "DOB" field is tapped
+                          _selectDate(context);
+                        },
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: _buildTextField(
@@ -151,6 +192,7 @@ class _SignUpState extends State<SignUp> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextField(
+        style: const TextStyle(color: Colors.white),
         controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
