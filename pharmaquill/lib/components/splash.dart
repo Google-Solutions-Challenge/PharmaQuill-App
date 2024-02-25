@@ -11,7 +11,12 @@ class SplashPage extends StatelessWidget {
         children: [
           Expanded(
             flex: 2,
-            child: Container(),
+            child: Container(
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/images/logo.png",
+              ),
+            ),
           ),
           SizedBox(
             height: 50,

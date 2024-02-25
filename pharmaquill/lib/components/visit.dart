@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 class Visit extends StatelessWidget {
   const Visit({super.key});
@@ -93,12 +95,14 @@ class Visit extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Expanded(
+                    child: TimeBuilder(
+                      time: time_doctor,
+                    ),
+                  )
                 ],
               ),
             ),
-          ),
-          TimeBuilder(
-            time: time_doctor,
           ),
         ],
       ),
@@ -108,35 +112,75 @@ class Visit extends StatelessWidget {
 
 class TimeBuilder extends StatelessWidget {
   final String time;
+  TimeBuilder({super.key, required this.time});
 
-  const TimeBuilder({super.key, required this.time});
+  final List<String> time_interval = [
+    "10:30",
+    "10:45",
+    "11:00",
+    "11:15",
+    "12:00"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final List<int> startTimeStr =
-        time.split(":").map((String part) => int.parse(part)).toList();
-    int startTime = startTimeStr[0] * 60 + startTimeStr[1];
-
-    List<int> endTimeStr = time
-        .split("-")[1]
-        .split(":")
-        .map((String part) => int.parse(part))
-        .toList();
-    int endTime = endTimeStr[0] * 60 + endTimeStr[1];
-
-    int interval = 20;
-    List<int> timeList = [];
-    for (int time = startTime; time <= endTime; time += interval) {
-      timeList.add(time);
-    }
-
+    final TextEditingController _PaymentControl = TextEditingController();
     return ListView.builder(
-      itemCount: timeList.length,
+      itemCount: time_interval.length,
       itemBuilder: (context, index) {
-        final timespl = timeList[index];
-
-        return ListTile(
-          title: Text(timespl.toString()),
+        return Padding(
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: Colors.blueAccent,
+                borderRadius: BorderRadius.circular(15)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ListTile(
+                  title: Text(
+                    time_interval[index],
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+                ElevatedButton(
+                  child: const Text("Book!"),
+                  onPressed: () => showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('Booking Confirmation'),
+                      content: SizedBox(
+                        height: 100,
+                        child: Column(
+                          children: [
+                            const Text(
+                                "Pay at https://payments.com/payment and input reference number"),
+                            TextFormField(
+                              controller: _PaymentControl,
+                              decoration: const InputDecoration(
+                                hintText: "Enter Here: ",
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Done'),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         );
       },
     );
